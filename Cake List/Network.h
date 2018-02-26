@@ -13,7 +13,8 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface Network : NSObject
 
-- (void)getCakes:(void (^)(NSArray<Cake *> *_Nullable cakes, NSError *_Nullable error))completionHandler;
+- (void)getCakes:(void (^)(NSArray<Cake *> * _Nullable cakes, NSError * _Nullable error))completionHandler;
+- (void)getImageFrom:(NSURL *)url completionHandler:(void (^)(UIImage * _Nullable image))completionHandler;
 
 #pragma mark - Class methods
 + (Network *)shared;

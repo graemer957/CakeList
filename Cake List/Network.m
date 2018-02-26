@@ -6,6 +6,7 @@
 //  Copyright © 2018 Stewart Hart. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "Network.h"
 #import "Cake.h"
 
@@ -14,6 +15,8 @@
 
 @property (nonatomic, readwrite, strong) NSURLSessionConfiguration *configuration;
 @property (nonatomic, readwrite, strong) NSURLSession *session;
+@property (nonatomic, readwrite, strong) NSCache *imageCache;
+@property (nonatomic, readwrite, strong) NSMutableArray<NSURL *> *failedURLs;
 
 @end
 
@@ -28,13 +31,16 @@
         self.configuration.timeoutIntervalForRequest = 10;
         
         self.session = [NSURLSession sessionWithConfiguration:self.configuration];
+        
+        self.imageCache = [[NSCache alloc] init];
+        self.failedURLs = [@[] mutableCopy];
     }
     
     return self;
 }
 
 #pragma mark - Instance methods
-- (void)getCakes:(void (^)(NSArray<Cake *> *_Nullable cakes, NSError *_Nullable error))completionHandler {
+- (void)getCakes:(void (^)(NSArray<Cake *> * _Nullable cakes, NSError * _Nullable error))completionHandler {
     NSURL *url = [NSURL URLWithString:@"https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json"];
     [self get:url completionHandler:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
@@ -67,6 +73,35 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completionHandler(cakes, nil);
         });
+    }];
+}
+
+- (void)getImageFrom:(NSURL *)url completionHandler:(void (^)(UIImage * _Nullable image))completionHandler {
+    UIImage *image = [self.imageCache objectForKey:url];
+    if (image != nil) {
+        completionHandler(image);
+        return;
+    }
+    
+    if ([self.failedURLs containsObject:url]) {
+        completionHandler(nil);
+        return;
+    }
+    
+    [self get:url completionHandler:^(NSData * _Nullable data, NSError * _Nullable error) {
+        UIImage *image = [UIImage imageWithData:data];
+        if (image) {
+            [self.imageCache setObject:image forKey:url];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(image);
+            });
+        } else {
+            [self.failedURLs addObject:url];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(nil);
+            });
+            return;
+        }
     }];
 }
 

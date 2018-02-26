@@ -45,9 +45,9 @@
     cell.titleLabel.text = cake.title;
     cell.descriptionLabel.text = cake.desc;
     
-    NSData *data = [NSData dataWithContentsOfURL:cake.image];
-    UIImage *image = [UIImage imageWithData:data];
-    cell.cakeImageView.image = image;
+    [[Network shared] getImageFrom:cake.image completionHandler:^(UIImage * _Nullable image) {
+        cell.cakeImageView.image = image;
+    }];
     
     return cell;
 }

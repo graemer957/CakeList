@@ -10,6 +10,7 @@
 #import "CakeCell.h"
 #import "Cake.h"
 #import "Network.h"
+#import "CakeInformationViewController.h"
 
 
 @interface MasterViewController ()
@@ -26,6 +27,17 @@
     [super viewDidLoad];
     
     [self updateCakes];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showInforation"]) {
+        CakeCell *cell = (CakeCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Cake *cake = self.cakes[indexPath.row];
+        
+        CakeInformationViewController *informationViewController = (CakeInformationViewController *)segue.destinationViewController;
+        informationViewController.cake = cake;
+    }
 }
 
 

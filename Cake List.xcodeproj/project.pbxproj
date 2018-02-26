@@ -10,6 +10,7 @@
 		AA41F05B204424E600E0F047 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA41F05A204424E600E0F047 /* Launch Screen.storyboard */; };
 		AA41F05F204428F800E0F047 /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41F05E204428F800E0F047 /* Cake.m */; };
 		AA41F0632044313F00E0F047 /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = AA41F0622044313F00E0F047 /* Network.m */; };
+		AABF7D7420444778000B35FF /* CakeInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABF7D7320444778000B35FF /* CakeInformationViewController.m */; };
 		DBF17A171B0B648F004E6311 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A161B0B648F004E6311 /* main.m */; };
 		DBF17A1A1B0B648F004E6311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A191B0B648F004E6311 /* AppDelegate.m */; };
 		DBF17A1D1B0B648F004E6311 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A1C1B0B648F004E6311 /* MasterViewController.m */; };
@@ -35,6 +36,8 @@
 		AA41F05E204428F800E0F047 /* Cake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cake.m; sourceTree = "<group>"; };
 		AA41F0612044313F00E0F047 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		AA41F0622044313F00E0F047 /* Network.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		AABF7D7220444778000B35FF /* CakeInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CakeInformationViewController.h; sourceTree = "<group>"; };
+		AABF7D7320444778000B35FF /* CakeInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CakeInformationViewController.m; sourceTree = "<group>"; };
 		DBF17A111B0B648F004E6311 /* Cake List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cake List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF17A151B0B648F004E6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF17A161B0B648F004E6311 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 		DBF17A401B0B8EE3004E6311 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AABF7D7220444778000B35FF /* CakeInformationViewController.h */,
+				AABF7D7320444778000B35FF /* CakeInformationViewController.m */,
 				DBF17A1B1B0B648F004E6311 /* MasterViewController.h */,
 				DBF17A1C1B0B648F004E6311 /* MasterViewController.m */,
 			);
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA41F05F204428F800E0F047 /* Cake.m in Sources */,
+				AABF7D7420444778000B35FF /* CakeInformationViewController.m in Sources */,
 				DBF17A1A1B0B648F004E6311 /* AppDelegate.m in Sources */,
 				DBF17A3F1B0B8E16004E6311 /* CakeCell.m in Sources */,
 				DBF17A1D1B0B648F004E6311 /* MasterViewController.m in Sources */,

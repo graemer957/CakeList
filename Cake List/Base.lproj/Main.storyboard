@@ -37,15 +37,15 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CakeCell" rowHeight="60" id="B52-71-W6G" customClass="CakeCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CakeCell" rowHeight="60" id="B52-71-W6G" customClass="CakeCell">
                                 <rect key="frame" x="0.0" y="22" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B52-71-W6G" id="yGV-Jd-h9v">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="E4j-8t-yiS">
-                                            <rect key="frame" x="8" y="8" width="359" height="43.5"/>
+                                            <rect key="frame" x="8" y="8" width="325" height="43.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cJ-YH-PLb">
                                                     <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
@@ -56,16 +56,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Vwf-Ef-1Az">
-                                                    <rect key="frame" x="51.5" y="0.0" width="307.5" height="43.5"/>
+                                                    <rect key="frame" x="51.5" y="0.0" width="273.5" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLQ-Hv-eeT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="307.5" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="273.5" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAL-IQ-xUk">
-                                                            <rect key="frame" x="0.0" y="22" width="307.5" height="21.5"/>
+                                                            <rect key="frame" x="0.0" y="22" width="273.5" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -86,6 +86,7 @@
                                     <outlet property="cakeImageView" destination="2cJ-YH-PLb" id="s4S-u2-MjR"/>
                                     <outlet property="descriptionLabel" destination="XAL-IQ-xUk" id="ooK-Ho-ea2"/>
                                     <outlet property="titleLabel" destination="pLQ-Hv-eeT" id="VuR-pl-Yb7"/>
+                                    <segue destination="DKP-wo-s6F" kind="show" identifier="showInforation" id="MRh-84-DPh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,6 +98,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cake List" id="tQt-TN-PWz"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="800-n9-fnn">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <action selector="updateCakes" destination="pGg-6v-bdr" eventType="valueChanged" id="l6V-Ge-spC"/>
@@ -106,6 +108,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="603.75" y="63.380281690140841"/>
+        </scene>
+        <!--Cake Information-->
+        <scene sceneID="zMZ-Wd-V9V">
+            <objects>
+                <viewController title="Cake Information" id="DKP-wo-s6F" customClass="CakeInformationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qqq-hY-Ocw"/>
+                        <viewControllerLayoutGuide type="bottom" id="vN0-rV-beE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ll5-Ll-Nij">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4nX-xX-faC">
+                                <rect key="frame" x="8" y="124" width="359" height="297"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G2P-Yp-Xxq">
+                                        <rect key="frame" x="59.5" y="0.0" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="G2P-Yp-Xxq" secondAttribute="height" multiplier="1:1" id="zYz-6N-3Vb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Eza-vv-7JK">
+                                        <rect key="frame" x="135.5" y="248" width="88" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfB-1T-tPu" userLabel="Title label">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qms-h3-wbN" userLabel="Description label">
+                                                <rect key="frame" x="0.0" y="28.5" width="88" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4nX-xX-faC" firstAttribute="top" secondItem="qqq-hY-Ocw" secondAttribute="bottom" constant="8" id="OgW-aR-22t"/>
+                            <constraint firstItem="4nX-xX-faC" firstAttribute="leading" secondItem="Ll5-Ll-Nij" secondAttribute="leading" constant="8" id="SKc-US-8XE"/>
+                            <constraint firstItem="vN0-rV-beE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4nX-xX-faC" secondAttribute="bottom" constant="8" id="ioY-j3-Tj8"/>
+                            <constraint firstAttribute="trailing" secondItem="4nX-xX-faC" secondAttribute="trailing" constant="8" id="vn3-7S-tgI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descLabel" destination="qms-h3-wbN" id="T9j-Q9-hB6"/>
+                        <outlet property="imageView" destination="G2P-Yp-Xxq" id="25i-Vp-tvo"/>
+                        <outlet property="titleLabel" destination="GfB-1T-tPu" id="xCs-aX-tUx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tu7-Bc-TFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="63"/>
         </scene>
     </scenes>
 </document>

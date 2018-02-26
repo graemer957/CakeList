@@ -20,7 +20,7 @@
 
 @implementation Cake
 
-#pragma mark - Initialiser
+#pragma mark - Initialisers
 - (_Nullable instancetype)initFromDictionary:(NSDictionary<NSString *, NSString *> *)dictionary {
     if (self = [super init]) {
         NSString *title = dictionary[@"title"];

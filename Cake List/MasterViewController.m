@@ -47,7 +47,7 @@
     NSURL *aURL = [NSURL URLWithString:object[@"image"]];
     NSData *data = [NSData dataWithContentsOfURL:aURL];
     UIImage *image = [UIImage imageWithData:data];
-    [cell.cakeImageView setImage:image];
+    cell.cakeImageView.image = image;
     
     return cell;
 }

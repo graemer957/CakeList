@@ -8,11 +8,12 @@
 
 #import "MasterViewController.h"
 #import "CakeCell.h"
+#import "Cake.h"
 
 
 @interface MasterViewController ()
 
-@property (nonatomic, readwrite, strong) NSArray *objects;
+@property (nonatomic, readwrite, strong) NSMutableArray<Cake *> *cakes;
 
 @end
 
@@ -33,19 +34,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.cakes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CakeCell *cell = (CakeCell *)[tableView dequeueReusableCellWithIdentifier:@"CakeCell"];
     
-    NSDictionary *object = self.objects[indexPath.row];
-    cell.titleLabel.text = object[@"title"];
-    cell.descriptionLabel.text = object[@"desc"];
+    Cake *cake = self.cakes[indexPath.row];
+    cell.titleLabel.text = cake.title;
+    cell.descriptionLabel.text = cake.desc;
     
-    
-    NSURL *aURL = [NSURL URLWithString:object[@"image"]];
-    NSData *data = [NSData dataWithContentsOfURL:aURL];
+    NSData *data = [NSData dataWithContentsOfURL:cake.image];
     UIImage *image = [UIImage imageWithData:data];
     cell.cakeImageView.image = image;
     
@@ -66,14 +65,28 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     NSError *jsonError;
-    id responseData = [NSJSONSerialization
-                       JSONObjectWithData:data
-                       options:kNilOptions
-                       error:&jsonError];
-    if (!jsonError){
-        self.objects = responseData;
-        [self.tableView reloadData];
+    id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+    if (jsonError) {
+        NSLog(@"JSON Parse error");
+        return;
     }
+    
+    NSMutableArray<Cake *> *cakes = [@[] mutableCopy];
+    if ([responseData isKindOfClass:[NSArray class]]) {
+        NSArray *cakeDictionaries = (NSArray *)responseData;
+        for (id object in cakeDictionaries) {
+            if ([object isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *cakeDictionary = (NSDictionary *)object;
+                Cake *cake = [[Cake alloc] initFromDictionary:cakeDictionary];
+                if (cake != nil) {
+                    [cakes addObject:cake];
+                }
+            }
+        }
+    }
+    NSLog(@"Ingested %zd cakes, yummy...", cakes.count);
+    self.cakes = cakes;
+    [self.tableView reloadData];
 }
 
 @end

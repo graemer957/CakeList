@@ -73,7 +73,6 @@
     if (!jsonError){
         self.objects = responseData;
         [self.tableView reloadData];
-    } else {
     }
 }
 

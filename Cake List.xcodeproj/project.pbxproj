@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA41F05B204424E600E0F047 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA41F05A204424E600E0F047 /* Launch Screen.storyboard */; };
 		DBF17A171B0B648F004E6311 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A161B0B648F004E6311 /* main.m */; };
 		DBF17A1A1B0B648F004E6311 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A191B0B648F004E6311 /* AppDelegate.m */; };
 		DBF17A1D1B0B648F004E6311 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A1C1B0B648F004E6311 /* MasterViewController.m */; };
 		DBF17A231B0B648F004E6311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF17A211B0B648F004E6311 /* Main.storyboard */; };
 		DBF17A251B0B648F004E6311 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF17A241B0B648F004E6311 /* Images.xcassets */; };
-		DBF17A281B0B648F004E6311 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF17A261B0B648F004E6311 /* LaunchScreen.xib */; };
 		DBF17A341B0B648F004E6311 /* Cake_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A331B0B648F004E6311 /* Cake_ListTests.m */; };
 		DBF17A3F1B0B8E16004E6311 /* CakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF17A3E1B0B8E16004E6311 /* CakeCell.m */; };
 /* End PBXBuildFile section */
@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA41F05A204424E600E0F047 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		DBF17A111B0B648F004E6311 /* Cake List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cake List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF17A151B0B648F004E6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF17A161B0B648F004E6311 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		DBF17A1C1B0B648F004E6311 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		DBF17A221B0B648F004E6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBF17A241B0B648F004E6311 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DBF17A271B0B648F004E6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DBF17A2D1B0B648F004E6311 /* Cake ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cake ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF17A321B0B648F004E6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF17A331B0B648F004E6311 /* Cake_ListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cake_ListTests.m; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				DBF17A191B0B648F004E6311 /* AppDelegate.m */,
 				DBF17A411B0B8EED004E6311 /* Cells */,
 				DBF17A241B0B648F004E6311 /* Images.xcassets */,
-				DBF17A261B0B648F004E6311 /* LaunchScreen.xib */,
+				AA41F05A204424E600E0F047 /* Launch Screen.storyboard */,
 				DBF17A211B0B648F004E6311 /* Main.storyboard */,
 				DBF17A141B0B648F004E6311 /* Supporting Files */,
 				DBF17A401B0B8EE3004E6311 /* View Controllers */,
@@ -221,7 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBF17A231B0B648F004E6311 /* Main.storyboard in Resources */,
-				DBF17A281B0B648F004E6311 /* LaunchScreen.xib in Resources */,
+				AA41F05B204424E600E0F047 /* Launch Screen.storyboard in Resources */,
 				DBF17A251B0B648F004E6311 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,14 +272,6 @@
 				DBF17A221B0B648F004E6311 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DBF17A261B0B648F004E6311 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DBF17A271B0B648F004E6311 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

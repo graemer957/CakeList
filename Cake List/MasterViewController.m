@@ -59,8 +59,8 @@
 }
 
 
-#pragma mark - Private methods
-- (void)updateCakes {
+#pragma mark - IBActions
+- (IBAction)updateCakes {
     [[Network shared] getCakes:^(NSArray<Cake *> * _Nullable cakes, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"JSON Parse error: %@", error);
@@ -70,6 +70,7 @@
         NSLog(@"Ingested %zd cakes, yummy...", cakes.count);
         self.cakes = cakes;
         [self.tableView reloadData];
+        [self.tableView.refreshControl endRefreshing];
     }];
 }
 

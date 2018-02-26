@@ -9,11 +9,12 @@
 #import "MasterViewController.h"
 #import "CakeCell.h"
 #import "Cake.h"
+#import "Network.h"
 
 
 @interface MasterViewController ()
 
-@property (nonatomic, readwrite, strong) NSMutableArray<Cake *> *cakes;
+@property (nonatomic, readwrite, copy) NSArray<Cake *> *cakes;
 
 @end
 
@@ -24,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self getData];
+    [self updateCakes];
 }
 
 
@@ -59,34 +60,17 @@
 
 
 #pragma mark - Private methods
-- (void)getData {
-    NSURL *url = [NSURL URLWithString:@"https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json"];
-    
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    NSError *jsonError;
-    id responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-    if (jsonError) {
-        NSLog(@"JSON Parse error");
-        return;
-    }
-    
-    NSMutableArray<Cake *> *cakes = [@[] mutableCopy];
-    if ([responseData isKindOfClass:[NSArray class]]) {
-        NSArray *cakeDictionaries = (NSArray *)responseData;
-        for (id object in cakeDictionaries) {
-            if ([object isKindOfClass:[NSDictionary class]]) {
-                NSDictionary *cakeDictionary = (NSDictionary *)object;
-                Cake *cake = [[Cake alloc] initFromDictionary:cakeDictionary];
-                if (cake != nil) {
-                    [cakes addObject:cake];
-                }
-            }
+- (void)updateCakes {
+    [[Network shared] getCakes:^(NSArray<Cake *> * _Nullable cakes, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"JSON Parse error: %@", error);
+            return;
         }
-    }
-    NSLog(@"Ingested %zd cakes, yummy...", cakes.count);
-    self.cakes = cakes;
-    [self.tableView reloadData];
+        
+        NSLog(@"Ingested %zd cakes, yummy...", cakes.count);
+        self.cakes = cakes;
+        [self.tableView reloadData];
+    }];
 }
 
 @end

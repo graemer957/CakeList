@@ -10,8 +10,8 @@
 
 @interface CakeCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *cakeImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, readwrite, weak) IBOutlet UIImageView *cakeImageView;
+@property (nonatomic, readwrite, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, readwrite, weak) IBOutlet UILabel *descriptionLabel;
 
 @end

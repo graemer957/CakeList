@@ -12,7 +12,7 @@
 
 @interface MasterViewController ()
 
-@property (strong, nonatomic) NSArray *objects;
+@property (nonatomic, readwrite, strong) NSArray *objects;
 
 @end
 

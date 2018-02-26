@@ -31,7 +31,7 @@
         if (desc == nil || desc.length == 0) { return nil; }
         self.desc = [desc copy];
         
-        NSString *address = dictionary[@"image"];
+        NSString *address = [dictionary[@"image"] stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
         if (address == nil || address.length == 0) { return nil; }
         NSURL *url = [NSURL URLWithString:address];
         if (url == nil) { return nil; }

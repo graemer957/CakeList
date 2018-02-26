@@ -45,8 +45,11 @@
     cell.titleLabel.text = cake.title;
     cell.descriptionLabel.text = cake.desc;
     
+    cell.url = cake.image;
     [[Network shared] getImageFrom:cake.image completionHandler:^(UIImage * _Nullable image) {
-        cell.cakeImageView.image = image;
+        if ([cell.url isEqual:cake.image]) {
+            cell.cakeImageView.image = image;
+        }
     }];
     
     return cell;

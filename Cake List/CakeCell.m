@@ -10,4 +10,10 @@
 
 @implementation CakeCell
 
+#pragma mark - UITableViewCell
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.url = nil;
+}
+
 @end

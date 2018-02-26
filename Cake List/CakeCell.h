@@ -13,5 +13,6 @@
 @property (nonatomic, readwrite, weak) IBOutlet UIImageView *cakeImageView;
 @property (nonatomic, readwrite, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, readwrite, weak) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, readwrite, copy) NSURL *url;
 
 @end

@@ -9,18 +9,25 @@
 #import "MasterViewController.h"
 #import "CakeCell.h"
 
+
 @interface MasterViewController ()
+
 @property (strong, nonatomic) NSArray *objects;
+
 @end
+
 
 @implementation MasterViewController
 
+#pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self getData];
 }
 
-#pragma mark - Table View
+
+#pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -35,7 +42,7 @@
     NSDictionary *object = self.objects[indexPath.row];
     cell.titleLabel.text = object[@"title"];
     cell.descriptionLabel.text = object[@"desc"];
- 
+    
     
     NSURL *aURL = [NSURL URLWithString:object[@"image"]];
     NSData *data = [NSData dataWithContentsOfURL:aURL];
@@ -45,12 +52,15 @@
     return cell;
 }
 
+
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)getData{
-    
+
+#pragma mark - Private methods
+- (void)getData {
     NSURL *url = [NSURL URLWithString:@"https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json"];
     
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -65,7 +75,6 @@
         [self.tableView reloadData];
     } else {
     }
-    
 }
 
 @end

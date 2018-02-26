@@ -10,5 +10,4 @@
 
 @implementation CakeCell
 
-
 @end
